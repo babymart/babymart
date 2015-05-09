@@ -1,0 +1,21 @@
+﻿@functions {
+
+    public static List<Babymart.Models.sys_content> ListContents(string Type)
+    {
+        var db = new Babymart.Models.shopdochoi123_dbEntities1();
+        return db.sys_content.Where(o => o.Type.Equals(Type)).ToList();
+    }
+    public static Babymart.Models.sys_content GetContents(string Type, string Name)
+    {
+        var db = new Babymart.Models.shopdochoi123_dbEntities1();
+        return db.sys_content.Where(o => o.Type.Equals(Type) && o.Name.Equals(Name)).FirstOrDefault();
+    }
+    public static int GetStoreId()
+    {
+        return Babymart.Infractstructure.UtilsBB.GetStoreId();
+    }
+    public static bool GetAdminStratorRole(int role)
+    {
+        return Babymart.Infractstructure.UtilsBB.GetAdminStratorRole(role);
+    }
+}
